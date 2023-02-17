@@ -1,28 +1,5 @@
-#[derive(Debug)]
-struct Complex {
-    real: f64,
-    imag: f64,
-}
-
-impl Complex {
-    fn add(&self, other: &Complex) -> Complex {
-        Complex {
-            real: self.real + other.real,
-            imag: self.imag + other.imag,
-        }
-    }
-
-    fn mul(&self, other: &Complex) -> Complex {
-        Complex {
-            real: self.real * other.real - self.imag * other.imag,
-            imag: self.real * other.imag + self.imag * other.real,
-        }
-    }
-
-    fn modulus(&self) -> f64 {
-        (self.real * self.real + self.imag * self.imag).sqrt()
-    }
-}
+mod complex;
+use complex::Complex;
 
 const MAX_ITERATIONS: u64 = 30;
 const SCREEN_SIZE: u64 = 400;
