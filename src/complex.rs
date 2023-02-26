@@ -5,6 +5,10 @@ pub struct Complex {
 }
 
 impl Complex {
+    pub fn new(real: f64, imag: f64) -> Complex {
+        Complex { real, imag }
+    }
+
     pub fn add(&self, other: &Complex) -> Complex {
         Complex {
             real: self.real + other.real,
