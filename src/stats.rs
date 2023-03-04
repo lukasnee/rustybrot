@@ -1,4 +1,4 @@
-#[derive(Copy, Clone, Debug)]
+#[derive(Copy, Clone, Debug, Default)]
 pub struct VarianceState {
     pub n: usize,
     pub m: f64,
@@ -6,19 +6,7 @@ pub struct VarianceState {
 }
 
 impl VarianceState {
-    fn new() -> VarianceState {
-        VarianceState {
-            n: 0,
-            m: 0.0,
-            ssd: 0.0,
-        }
-    }
-
-    // fn reset(&mut self) {
-    //     *self = VarianceState::new();
-    // }
-
-    fn update(&mut self, value: u64) -> f64 {
+    pub fn update(&mut self, value: u64) -> f64 {
         self.n += 1;
         let new_mean = self.m + (value as f64 - self.m) / (self.n as f64);
         let new_ssd =
@@ -35,7 +23,7 @@ impl VarianceState {
     }
 }
 
-#[derive(Copy, Clone, Debug)]
+#[derive(Copy, Clone, Debug, Default)]
 pub struct Stats {
     pub min: u64,
     pub max: u64,
@@ -44,19 +32,6 @@ pub struct Stats {
 }
 
 impl Stats {
-    pub fn new() -> Stats {
-        Stats {
-            min: u32::MAX as u64,
-            max: u32::MIN as u64,
-            variance: 0.0,
-            variance_state: VarianceState::new(),
-        }
-    }
-
-    // pub fn reset(&mut self) {
-    //     *self = Stats::new();
-    // }
-
     pub fn update(&mut self, value: u64) {
         if value > self.max {
             self.max = value;

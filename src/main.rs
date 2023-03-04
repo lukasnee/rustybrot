@@ -69,7 +69,7 @@ fn main() {
     let mut view_size: f64 = 4.0;
     // let mut initial_view: bool = true;
     // let mut last_variance: f64 = 0.0;
-    let mut stats = Stats::new();
+    let mut stats = Stats::default();
     let mut max_iterations: u64 = 100;
     for c in stdin.keys() {
         // if !initial_view {
@@ -147,6 +147,6 @@ fn main() {
             view_size
         )
         .unwrap();
-        stats = Stats::new();
+        stats = Stats::default();
     }
 }
