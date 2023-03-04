@@ -24,6 +24,6 @@ impl Complex {
     }
 
     pub fn modulus(&self) -> f64 {
-        (self.real * self.real + self.imag * self.imag).sqrt()
+        self.real.hypot(self.imag)
     }
 }
