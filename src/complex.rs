@@ -5,19 +5,19 @@ pub struct Complex {
 }
 
 impl Complex {
-    pub fn new(real: f64, imag: f64) -> Complex {
-        Complex { real, imag }
+    pub fn new(real: f64, imag: f64) -> Self {
+        Self { real, imag }
     }
 
-    pub fn add(&self, other: &Complex) -> Complex {
-        Complex {
+    pub fn add(&self, other: &Self) -> Self {
+        Self {
             real: self.real + other.real,
             imag: self.imag + other.imag,
         }
     }
 
-    pub fn mul(&self, other: &Complex) -> Complex {
-        Complex {
+    pub fn mul(&self, other: &Self) -> Self {
+        Self {
             real: self.real * other.real - self.imag * other.imag,
             imag: self.real * other.imag + self.imag * other.real,
         }
